@@ -2,7 +2,8 @@ import { useScrollReveal } from '../hooks/useScrollReveal';
 import project1 from '../assets/Game.jpg';
 import project2 from '../assets/TBuddy.png';
 import project3 from '../assets/LandingPage Project.png';
-import { ExternalLink, Github } from 'lucide-react';
+import { ExternalLink } from 'lucide-react';
+import { GithubIcon } from './icons';
 
 export default function Projects() {
   const [ref, isVisible] = useScrollReveal();
@@ -56,7 +57,7 @@ export default function Projects() {
                       <ExternalLink size={20} />
                     </a>
                     <a href="#" className="p-3 bg-white text-blue-900 rounded-full hover:scale-110 transition-transform">
-                      <Github size={20} />
+                      <GithubIcon size={20} />
                     </a>
                   </div>
                 </div>

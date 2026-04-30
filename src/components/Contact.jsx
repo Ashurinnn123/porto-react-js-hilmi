@@ -1,5 +1,6 @@
 import { useScrollReveal } from '../hooks/useScrollReveal';
-import { Mail, Github, Linkedin, Phone } from 'lucide-react';
+import { Mail, Phone } from 'lucide-react';
+import { GithubIcon, LinkedinIcon } from './icons';
 
 export default function Contact() {
   const [ref, isVisible] = useScrollReveal();
@@ -40,7 +41,7 @@ export default function Contact() {
 
                 <a href="https://www.linkedin.com/in/hilmi-naufal-ramadhani-8b701627a/" target="_blank" rel="noreferrer" className="flex items-center gap-4 text-slate-600 hover:text-blue-600 transition-colors group">
                   <div className="w-12 h-12 bg-blue-50 rounded-full flex items-center justify-center text-blue-600 group-hover:bg-blue-600 group-hover:text-white transition-colors">
-                    <Linkedin size={20} />
+                    <LinkedinIcon size={20} />
                   </div>
                   <div>
                     <p className="text-sm font-medium text-slate-500">LinkedIn</p>
@@ -50,7 +51,7 @@ export default function Contact() {
 
                 <a href="https://github.com/Ashurinnn123" target="_blank" rel="noreferrer" className="flex items-center gap-4 text-slate-600 hover:text-blue-600 transition-colors group">
                   <div className="w-12 h-12 bg-blue-50 rounded-full flex items-center justify-center text-blue-600 group-hover:bg-blue-600 group-hover:text-white transition-colors">
-                    <Github size={20} />
+                    <GithubIcon size={20} />
                   </div>
                   <div>
                     <p className="text-sm font-medium text-slate-500">GitHub</p>
