@@ -19,13 +19,15 @@ export default function Projects() {
       title: "Product Base Capstone Project - Bangkit",
       desc: "A capstone project at Bangkit Academy, led by Google, Tokopedia, Gojek, and Traveloka. Developed a mobile application to help travelers discover sustainable tourist destinations. Key features include information on eco-friendly and local cultural sites, a rating and review system, trip planning, and education on sustainable travel practices.",
       image: project2,
-      tags: ["Python", "Machine Learning", "TensorFlow"]
+      tags: ["Python", "Machine Learning", "TensorFlow"],
+      github: "https://github.com/DanishAlifArsan/TourBuddy"
     },
     {
       title: "Agen Perumahan Landing Page",
       desc: "Membangun website agen properti untuk pencarian, pembelian, dan penyewaan rumah di Malang, lengkap dengan katalog hunian, detail harga, fasilitas premium, serta integrasi kontak agen.",
       image: project3,
-      tags: ["HTML", "CSS", "JavaScript"]
+      tags: ["HTML", "CSS", "JavaScript"],
+      github: "https://github.com/Ashurinnn123/agenperumahan"
     }
   ];
 
@@ -40,8 +42,8 @@ export default function Projects() {
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-xl">
             {projects.map((project, idx) => (
-              <div 
-                key={idx} 
+              <div
+                key={idx}
                 className={`bg-canvas rounded-xxxl border border-hairline-soft overflow-hidden transition-all duration-300 group opacity-0 ${isVisible ? 'animate-fade-in-up' : ''}`}
                 style={{ animationDelay: `${idx * 200}ms`, animationFillMode: 'forwards' }}
               >
@@ -52,12 +54,16 @@ export default function Projects() {
                     className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                   />
                   <div className="absolute inset-0 bg-ink-deep/40 transition-colors duration-300 flex items-center justify-center opacity-0 group-hover:opacity-100 gap-4">
-                    <a href="#" className="w-10 h-10 bg-canvas text-ink rounded-circle flex items-center justify-center hover:scale-110 transition-transform">
-                      <ExternalLink size={20} />
-                    </a>
-                    <a href="#" className="w-10 h-10 bg-canvas text-ink rounded-circle flex items-center justify-center hover:scale-110 transition-transform">
-                      <GithubIcon size={20} />
-                    </a>
+                    {project.link && (
+                      <a href={project.link} target="_blank" rel="noreferrer" className="w-10 h-10 bg-canvas text-ink rounded-circle flex items-center justify-center hover:scale-110 transition-transform">
+                        <ExternalLink size={20} />
+                      </a>
+                    )}
+                    {project.github && (
+                      <a href={project.github} target="_blank" rel="noreferrer" className="w-10 h-10 bg-canvas text-ink rounded-circle flex items-center justify-center hover:scale-110 transition-transform">
+                        <GithubIcon size={20} />
+                      </a>
+                    )}
                   </div>
                 </div>
                 <div className="p-xxl">

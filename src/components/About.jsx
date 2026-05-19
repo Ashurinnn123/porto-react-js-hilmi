@@ -32,9 +32,6 @@ export default function About() {
 
           <div className="grid md:grid-cols-2 gap-xxl lg:gap-section items-center">
             <div className={`opacity-0 ${isVisible ? 'animate-fade-in-up' : ''}`} style={{ animationDelay: '200ms', animationFillMode: 'forwards' }}>
-              <h3 className="text-heading-sm font-optimistic-heading text-ink-deep mb-6">
-                Driven by curiosity, fueled by coffee.
-              </h3>
               <p className="text-body-md text-ink mb-6">
                 As a fresh graduate from Universitas Muhammadiyah Malang with a degree in Informatics, I have developed a strong foundation in software engineering and a deep passion for web development. My academic journey has equipped me with both theoretical knowledge and practical experience in building functional, user-centric applications.
               </p>
@@ -45,9 +42,9 @@ export default function About() {
 
             <div className="grid sm:grid-cols-2 gap-xl">
               {details.map((item, idx) => (
-                <div 
-                  key={idx} 
-                  className={`p-xl bg-canvas rounded-xl border border-hairline-soft opacity-0 ${isVisible ? 'animate-fade-in-up' : ''}`}
+                <div
+                  key={idx}
+                  className={`p-xl bg-canvas rounded-xl border border-hairline-soft hover:shadow-sticky-panel transition-all duration-300 transform hover:-translate-y-1 opacity-0 ${isVisible ? 'animate-fade-in-up' : ''}`}
                   style={{ animationDelay: `${(idx * 150) + 400}ms`, animationFillMode: 'forwards' }}
                 >
                   <div className="mb-4">

@@ -38,10 +38,10 @@ export default function Navbar() {
                   key={link.name} 
                   href={link.href}
                   onClick={() => setActiveSection(link.name)}
-                  className={`text-body-sm-bold rounded-full py-2 px-4 transition-colors ${
+                  className={`text-body-sm-bold rounded-full py-2 px-4 transition-all duration-300 ${
                     isActive 
                       ? 'bg-ink-deep text-canvas border border-ink-deep' 
-                      : 'bg-canvas text-ink border border-hairline hover:bg-surface-soft'
+                      : 'bg-canvas text-ink border border-hairline hover:bg-surface-soft hover:border-transparent'
                   }`}
                 >
                   {link.name}
@@ -51,15 +51,25 @@ export default function Navbar() {
           </div>
 
           <div className="md:hidden flex items-center">
-            <button onClick={() => setIsOpen(!isOpen)} className="text-ink focus:outline-none">
-              {isOpen ? <X size={24} /> : <Menu size={24} />}
+            <button onClick={() => setIsOpen(!isOpen)} className="text-ink focus:outline-none relative w-6 h-6 flex items-center justify-center">
+              <span className={`absolute transition-all duration-300 transform ${isOpen ? 'rotate-90 scale-0 opacity-0' : 'rotate-0 scale-100 opacity-100'}`}>
+                <Menu size={24} />
+              </span>
+              <span className={`absolute transition-all duration-300 transform ${isOpen ? 'rotate-0 scale-100 opacity-100' : '-rotate-90 scale-0 opacity-0'}`}>
+                <X size={24} />
+              </span>
             </button>
           </div>
         </div>
       </div>
 
-      {isOpen && (
-        <div className="md:hidden bg-canvas border-b border-hairline-soft px-4 pt-2 pb-6 space-y-2 shadow-sticky-panel absolute w-full left-0 top-full">
+      {/* Mobile Menu Dropdown with slide and fade animation */}
+      <div 
+        className={`md:hidden absolute w-full left-0 top-full bg-canvas border-b shadow-sticky-panel overflow-hidden transition-all duration-300 ease-in-out ${
+          isOpen ? 'max-h-96 opacity-100 border-hairline-soft' : 'max-h-0 opacity-0 border-transparent'
+        }`}
+      >
+        <div className="px-4 pt-2 pb-6 flex flex-col space-y-2">
           {navLinks.map((link) => {
             const isActive = activeSection === link.name;
             return (
@@ -70,8 +80,8 @@ export default function Navbar() {
                   setActiveSection(link.name);
                   setIsOpen(false);
                 }}
-                className={`block px-4 py-3 text-body-sm-bold rounded-xl ${
-                  isActive ? 'bg-ink-deep text-canvas' : 'text-ink hover:bg-surface-soft'
+                className={`block px-4 py-3 text-body-sm-bold rounded-xl transition-all duration-300 ${
+                  isActive ? 'bg-ink-deep text-canvas pl-6' : 'text-ink hover:bg-surface-soft hover:pl-6'
                 }`}
               >
                 {link.name}
@@ -79,7 +89,7 @@ export default function Navbar() {
             );
           })}
         </div>
-      )}
+      </div>
     </nav>
   );
 }
