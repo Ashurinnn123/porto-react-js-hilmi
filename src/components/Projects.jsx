@@ -30,20 +30,19 @@ export default function Projects() {
   ];
 
   return (
-    <section id="projects" className="py-20 bg-slate-50">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="projects" className="py-section-lg bg-canvas">
+      <div className="max-w-[1280px] mx-auto px-6 lg:px-8">
         <div ref={ref}>
-          <div className={`text-center mb-16 opacity-0 ${isVisible ? 'animate-fade-in-up' : ''}`}>
-            <h2 className="text-3xl font-bold text-slate-900 mb-4">Featured Projects</h2>
-            <div className="w-20 h-1 bg-blue-600 mx-auto rounded-full"></div>
-            <p className="mt-4 text-slate-600 max-w-2xl mx-auto">Here are some of my recent works ranging from landing pages to full-stack web applications.</p>
+          <div className={`text-center mb-section opacity-0 ${isVisible ? 'animate-fade-in-up' : ''}`}>
+            <h2 className="text-display-lg font-optimistic-heading text-ink-deep mb-4">Featured Projects</h2>
+            <p className="mt-4 text-body-md text-slate max-w-2xl mx-auto">Here are some of my recent works ranging from landing pages to full-stack web applications.</p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-xl">
             {projects.map((project, idx) => (
               <div 
                 key={idx} 
-                className={`bg-white rounded-2xl overflow-hidden shadow-sm hover:-translate-y-2 hover:shadow-2xl transition-all duration-300 group opacity-0 ${isVisible ? 'animate-fade-in-up' : ''}`}
+                className={`bg-canvas rounded-xxxl border border-hairline-soft overflow-hidden transition-all duration-300 group opacity-0 ${isVisible ? 'animate-fade-in-up' : ''}`}
                 style={{ animationDelay: `${idx * 200}ms`, animationFillMode: 'forwards' }}
               >
                 <div className="relative overflow-hidden aspect-video">
@@ -52,21 +51,21 @@ export default function Projects() {
                     alt={project.title}
                     className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                   />
-                  <div className="absolute inset-0 bg-blue-900/0 group-hover:bg-blue-900/40 transition-colors duration-300 flex items-center justify-center opacity-0 group-hover:opacity-100 gap-4">
-                    <a href="#" className="p-3 bg-white text-blue-900 rounded-full hover:scale-110 transition-transform">
+                  <div className="absolute inset-0 bg-ink-deep/40 transition-colors duration-300 flex items-center justify-center opacity-0 group-hover:opacity-100 gap-4">
+                    <a href="#" className="w-10 h-10 bg-canvas text-ink rounded-circle flex items-center justify-center hover:scale-110 transition-transform">
                       <ExternalLink size={20} />
                     </a>
-                    <a href="#" className="p-3 bg-white text-blue-900 rounded-full hover:scale-110 transition-transform">
+                    <a href="#" className="w-10 h-10 bg-canvas text-ink rounded-circle flex items-center justify-center hover:scale-110 transition-transform">
                       <GithubIcon size={20} />
                     </a>
                   </div>
                 </div>
-                <div className="p-6">
-                  <h3 className="text-xl font-bold text-slate-800 mb-2">{project.title}</h3>
-                  <p className="text-slate-600 text-sm mb-4 line-clamp-2">{project.desc}</p>
+                <div className="p-xxl">
+                  <h3 className="text-heading-sm font-optimistic-heading text-ink-deep mb-4">{project.title}</h3>
+                  <p className="text-body-sm text-charcoal mb-6 line-clamp-3">{project.desc}</p>
                   <div className="flex flex-wrap gap-2">
                     {project.tags.map((tag, tagIdx) => (
-                      <span key={tagIdx} className="px-3 py-1 bg-blue-50 text-blue-600 text-xs font-semibold rounded-md">
+                      <span key={tagIdx} className="px-4 py-2 bg-canvas text-ink border border-hairline text-body-sm-bold rounded-full">
                         {tag}
                       </span>
                     ))}
